@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AirShoppingRS Version="17.1" CorrelationID="405a30d6a09049dc86b27baea2877529" Target="Production" xmlns:ns2="http://www.af-klm.com/services/common/SystemFault-v1/xsd" xmlns="http://www.iata.org/IATA/EDIST/2017.1">Que pasa<Document><Succes/><Name><nickname>lol</nickname><secondname>mdr</secondname>name</Name><ReferenceVersion>ref</ReferenceVersion></Document><test test="test">petit test</test></AirShoppingRS>
