@@ -18,4 +18,9 @@ tag = tag(0,"","",[],"",0)
 body = tag.getTags(fileToConvert.body, 1)
 result += body.formatNameAndAttributes()
 result += '}'
-print(result)
+result = result[:-3] + result[-2:]
+#uncomment the following line to print the ouput
+#print(result)
+
+with open('small.json', 'w') as outfile:
+    outfile.write(result)

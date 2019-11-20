@@ -37,7 +37,7 @@ def getText(body):
     while i < fileLen and body[i] != '<':
         i += 1
     text = body[:i]
-    #in the case of a <unique/> tag, we would return ("") anyway. 
+    #in the case of a <unique/> tag, we would return ("") anyway.
     return (text)
 
 

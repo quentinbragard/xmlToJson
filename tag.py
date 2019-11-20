@@ -74,12 +74,12 @@ class tag():
             i += newTag.length
 
     def formatText(self):
-        if len(self.attributes) == 0:
+        if len(self.attributes) == 0 and len(self.tags) == 0:
             return ('"' + self.text + '",\n')
         elif len(self.tags) == 0:
-            return(((self.level + 1) * '\t') + '"#text": ' + self.text + '",\n' + self.level * '\t' + '},\n')
+            return(((self.level + 1) * '\t') + '"#text": "' + self.text + '"\n' + self.level * '\t' + '},\n')
         else:
-            return(((self.level + 1) * '\t') + '"#text": ' + self.text + '",\n')
+            return(((self.level + 1) * '\t') + '"#text": "' + self.text + '"\n')
 
     def formatNameAndAttributes(self):
         jsonFormat = (self.level * '\t') + '"' + self.name + '": '
@@ -122,10 +122,11 @@ class tag():
         toPrint += self.inside + '\n\n'
         if len(self.tags) > 0:
             toPrint += "Embedded tags:" + '\n'
-            for elem in self.tags:
-                print(elem)
-                toPrint += elem.name + '\n'
-        else:
+        if self.tags == -1:
             toPrint += "No embedded tags\n"
+        else:   
+            for elem in self.tags:
+                if elem != -1:
+                    toPrint += elem.name + '\n'
         toPrint += '\n' + '--------------------------------------' + '\n'
         return(toPrint)

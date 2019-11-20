@@ -6,12 +6,12 @@
             "@xmlns:ns2": "http://www.af-klm.com/services/common/SystemFault-v1/xsd",
             "@xmlns": "http://www.iata.org/IATA/EDIST/2017.1",
             "Document": {
-                  "Success": {
-                        "@test": "test"
-                  },
                   "Name": {
                         "nickname": "lol",
-                        "secondname": "mdr",
+                        "secondname": {
+                              "more": "more and more",
+                              "#text": "mdr"
+                        },
                         "#text": "name"
                   },
                   "ReferenceVersion": "ref"
