@@ -48,9 +48,12 @@ class tag():
         endingIndex = body.find('</' + tagName + '>')
         if endingIndex == -1:
             return (-1)
+        #to handle the <unique/> tags, we would have to change this condition otherwise, we'll have an error, since there wouldn't be any 
+        #closing tag. 
         tagText = getText(body[j:])
         tagBody = body[j + len(tagText):endingIndex]
         tagLength = j + len(tagText) + len(tagBody) + len(tagName) + 3
+        #The implementation wouldn't be the same in the <unique/> tags and the endingIndex would be different.
         foundTag = tag(tagLength, tagText, tagName, tagAttributes, tagBody, level)
         return(foundTag)
         

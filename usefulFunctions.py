@@ -12,6 +12,8 @@ def getName(body):
         i += 1
     if body[i] != ' ' and body[i] != '>':
         return (-1)
+    #Here, we could change the implementation to accept the <unique/> tags by checking if we have a body[i-1] == '/'
+    #and body[i] =='>'. In that case, we would have tagName = body[1:i - 1]. Be careful to tag.length then... 
     tagName = body[1:i]
     return (tagName)
 
@@ -35,6 +37,7 @@ def getText(body):
     while i < fileLen and body[i] != '<':
         i += 1
     text = body[:i]
+    #in the case of a <unique/> tag, we would return ("") anyway. 
     return (text)
 
 
