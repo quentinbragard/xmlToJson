@@ -1,17 +1,43 @@
 from usefulFunctions import *
+"""
+    The tag class contains different attributes: 
+        - Name: teh name of the tag. For example , the tag "<test att1="val1" att2="val2">something is written here</test>",
+        would be "test".
+
+        - Length: it is the length of the defining string. In the previous example, le length would be 62 (the '>' and '<' are counted).
+        
+        -Text: it is the texte contained between two tags. It won't ever contain an embedded tag. In our example, it would be
+        "something is written here".
+
+        -Attributes: it is a list containing all specified attributes in the openoing tag. Here it would be: [[att1,val1], [att2,val2]].
+
+        -Inside: it is the raw string that is used to get all tags. in our example, the inside would be: 
+        "<test att1="val1" att2="val2">something is written here</test>".
+
+        -Tags: it is a list of all embeded tags contained in our tag. Each time a tag is created, the recursive function getTags is called to fill
+        this list which will create the embedded tags by calling herself until there are no more embedded tags (return -1). In our example, 
+        there are no embedded tags, so the retyurn would directly be -1. 
+
+        -Level: it refers to the question of embedded tags. the first level is level 1 and concerns the body tag of the xml. Then each tag
+        contained into it would be a level 2 tag and each tag contained in this contained tag would be a level 3 tag, etc. It will be used
+        in order to get the indenttion level when formating the json string.
+
+    Among the getTags and the __init__ and __str__ functions, there are two functions that would be used in order to convert the tag class into a json
+    formated string. The main one in Format NameandAttributes which is a recursive function formatting the name as well as the attributes and calls
+    formatText if there are no embeded tags or calls itself of there are embedded tags to format the enbedded tags. 
+"""
 
 class tag():
+
     def getTags(self, body, level):
         if body == "":
             return(-1)
         if body[0] != '<':
             return(-1)
-
         tagName = getName(body)
         i = len(tagName) + 1
         while i < len(body) and body[i] == ' ':
             i += 1
-
         j = i
         while j < len(body) - i and body[j] != '>':
             j += 1

@@ -1,3 +1,7 @@
+"""
+Small class to convert a string into an xmlFile which allows to ignore the header and return an error if the header is not conform
+to xml standards.
+"""
 class xmlFile():
     def __init__(self, file):
         self.originalFile = file

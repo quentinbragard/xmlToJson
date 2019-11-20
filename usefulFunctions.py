@@ -1,3 +1,10 @@
+"""
+Those functions are designed to be used in the getTags method of thge tag class. They will respectively read the name, the attributes 
+and the text contained in each tag. Those functions are each time a new tag is detected. So far it does not handle the <tag/> case, neitehr
+the multiple text case. 
+"""
+
+
 def getName(body):
     i = 1
     fileLen = len(body)
