@@ -7,6 +7,11 @@ the two jsonFormat functions. There is a unique call to the formatNameAndAttribu
 unique call to the getTags method which is also recursive. We need to create an empty tag "tag" to call the getTags method. 
 
 It also use the xmlFile class.
+
+The parser does not handle : 
+    - <unique/> tags
+    - multiple text
+    - text that does appear after embedded tags
 """
 
 with open('small.xml', 'r') as file:
